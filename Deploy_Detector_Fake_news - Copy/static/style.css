@@ -1,0 +1,89 @@
+/* Reset some default styles */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+  }
+  
+  /* Global styles */
+  body {
+	font-family: 'Arial', sans-serif;  /* Set the font for the entire document */
+	background-color: #121212;         /* Set the background color for the body */
+	color: #eee;                       /* Set the text color for the body */
+	text-align: center;                /* Center-align text within the body */
+  }
+  
+  .container {
+	max-width: 800px;                  /* Set the maximum width for the container */
+	margin: 50px auto;                 /* Center the container horizontally and add margin */
+	background-color: #1e1e1e;         /* Set the background color for the container */
+	border-radius: 10px;               /* Add rounded corners to the container */
+	padding: 20px;                      /* Add padding inside the container */
+  }
+  
+  h1 {
+	font-size: 36px;                   /* Set the font size for h1 */
+	color: #3498db;                    /* Set the text color for h1 */
+	margin-bottom: 20px;               /* Add margin at the bottom of h1 */
+  }
+  
+  /* Button styles */
+  .btn {
+	display: inline-block;             /* Make the button display as an inline-block element */
+	padding: 10px 20px;                /* Set padding for the button */
+	font-size: 16px;                   /* Set the font size for the button */
+	font-weight: bold;                 /* Set bold font weight for the button */
+	text-decoration: none;             /* Remove default text decoration */
+	color: #fff;                       /* Set the text color for the button */
+	background-color: #333;            /* Set the background color for the button */
+	border-radius: 5px;                /* Add rounded corners to the button */
+	transition: background-color 0.3s ease;  /* Add a smooth transition effect for the button background color */
+  }
+  
+  .btn:hover {
+	background-color: #555;            /* Change background color on hover */
+  }
+  
+  /* Form styles */
+  .form-container {
+	background-color: #2a2a2a;         /* Set the background color for the form container */
+	padding: 20px;                     /* Add padding inside the form container */
+	border-radius: 10px;               /* Add rounded corners to the form container */
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  /* Add a subtle box shadow to the form container */
+  }
+  
+  input,
+  textarea {
+	width: 100%;                       /* Set the width of input and textarea to 100% */
+	margin-bottom: 20px;               /* Add margin at the bottom of input and textarea */
+	padding: 10px;                     /* Add padding to input and textarea */
+	font-size: 16px;                   /* Set the font size for input and textarea */
+	color: #eee;                       /* Set the text color for input and textarea */
+	border: 1px solid #555;            /* Set a border for input and textarea */
+	border-radius: 5px;                /* Add rounded corners to input and textarea */
+  }
+  
+  /* Login styles */
+  .login {
+	position: absolute;                /* Set the position to absolute for precise placement */
+	top: 50%;                          /* Center vertically at 50% from the top */
+	left: 50%;                         /* Center horizontally at 50% from the left */
+	transform: translate(-50%, -50%);  /* Adjust the position to the exact center using translate */
+	background-color: #2a2a2a;         /* Set the background color for the login container */
+	border-radius: 10px;               /* Add rounded corners to the login container */
+	padding: 20px;                     /* Add padding inside the login container */
+  }
+  
+  .login h1 {
+	font-size: 28px;                   /* Set the font size for h1 within the login container */
+	color: #3498db;                    /* Set the text color for h1 within the login container */
+	margin-bottom: 20px;               /* Add margin at the bottom of h1 within the login container */
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 600px) {
+	.container {
+	  padding: 0 20px;                  /* Adjust padding for smaller screens */
+	}
+  }
+  

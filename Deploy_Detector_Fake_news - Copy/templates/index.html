@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Free Elections Fake News Detection Predictor</title>
+
+  <!-- Include Google Fonts for styling -->
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+  <!-- Include external stylesheet -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  <!-- Internal styles for customization -->
+  <style>
+    /* Additional styles for the about message and color adjustments */
+    body {
+      background-color: #121212;  /* Set the background color for the entire document */
+      color: #eee;               /* Set the text color for the entire document */
+    }
+
+    /* Container styles for page layout */
+    .container {
+      max-width: 800px;          /* Set the maximum width for the container */
+      margin: 50px auto;         /* Center the container horizontally and add margin */
+      background-color: #1e1e1e; /* Set the background color for the container */
+      border-radius: 10px;       /* Add rounded corners to the container */
+      padding: 20px;             /* Add padding inside the container */
+    }
+
+    /* About message styles */
+    .about-message {
+      position: absolute;        /* Set the position to absolute for precise placement */
+      top: 10px;                 /* Position from the top */
+      left: 10px;                /* Position from the left */
+      font-size: 18px;           /* Set the font size for the about message */
+      color: #44a1f2;            /* Set the text color for the about message */
+    }
+
+    /* Login container styles */
+    .login {
+      position: absolute;        /* Set the position to absolute for precise placement */
+      top: 50%;                  /* Center vertically at 50% from the top */
+      left: 50%;                 /* Center horizontally at 50% from the left */
+      transform: translate(-50%, -50%); /* Adjust the position to the exact center using translate */
+      background-color: #2a2a2a; /* Set the background color for the login container */
+      border-radius: 10px;       /* Add rounded corners to the login container */
+      padding: 20px;             /* Add padding inside the login container */
+    }
+
+    /* Heading styles */
+    h1, h2 {
+      color: #3498db;            /* Set the text color for h1 and h2 */
+    }
+
+    /* Textarea and button styles */
+    textarea, button {
+      background-color: #333;    /* Set the background color for textarea and button */
+      border: 1px solid #555;    /* Set a border for textarea and button */
+      color: #eee;               /* Set the text color for textarea and button */
+    }
+
+    /* Results container styles */
+    .results {
+      margin-top: 15px;          /* Add margin at the top of the results container */
+    }
+
+    /* Button hover and focus styles */
+    button:hover, button:focus {
+      background-color: #555;    /* Change background color on hover or focus */
+    }
+
+    /* Yellow text styles */
+    .yellow-text {
+      color: #ff0;               /* Set the text color to yellow */
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Main container for the page -->
+  <div class="container">
+  
+    <!-- About this tool message -->
+    <div class="about-message">
+      <p>About this tool: The Free Elections Fake News Detection Predictor helps you analyze news articles and predict whether they are likely to be real or fake.</p>
+      <p class="yellow-text">A non-biased Natural Language Processing Model was trained to run behind this tool and make predictions.</p>
+    </div>
+
+    <!-- Login container for the prediction form -->
+    <div class="login">
+    
+      <!-- Heading for the login container -->
+      <h1>Welcome to the Free Elections Fake News Detection Predictor</h1>
+      <h2 class="yellow-text">Please input the text of the news article you'd like to check below</h2>
+
+      <!-- Form for submitting news text and getting predictions -->
+      <form action="{{ url_for('predict')}}" method="POST">
+      
+        <!-- Textarea for inputting news text -->
+        <textarea name="message" rows="6" cols="50" required="required" style="font-size: 18pt">{{ request.form['message'] }}</textarea>
+        <br> </br>
+        
+        <!-- Button for submitting the form and getting predictions -->
+        <button type="submit" class="btn btn-primary btn-block btn-large">Click to Predict!</button>
+
+        <!-- Container for displaying prediction results -->
+        <div class="results">
+          {% if prediction == ['FAKE']%}
+          <h2 style="color:red;">I predict this is Fake News </h2>
+          {% elif prediction == ['REAL']%}
+          <h2 style="color:green;"><b>I predict this is Real News</b></h2>
+          {% endif %}
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</body>
+
+</html>
